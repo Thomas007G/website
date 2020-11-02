@@ -20,10 +20,6 @@ function spinArrow() {
 }
 
 function scrolly(event) {
-    // event.preventDefault();
-
-    console.log(event.deltaY)
-
     if (event.deltaY > 0) {
        scrollDown();
     } else if ( event.deltaY < 0) {
@@ -37,7 +33,6 @@ function scrolly(event) {
 }
 
 function checkKey(event) {
-    console.log(event.keyCode);
     if( event.keyCode == 40) {
         scrollDown();
     } else if (event.keyCode == 38) {
