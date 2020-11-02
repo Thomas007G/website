@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  font-size: 20px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: black;
+  color: white;
+
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+nav li {
+  margin: 1em 1em;
+  font-size: 1.4em;
+}
+
+nav a {
+  color: white;
+  padding: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  body>nav li {
+    margin: 0;
+    padding: 0;
+  }
+
+  body>nav a {
+    padding: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+
+  font-size: 2em;
+  letter-spacing: 2%;
+  color: white;
+
+  background: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+header section {
+  width: 100%;
+  height: 8vh;
+}
+
+main section {
+  margin: auto;
+  padding-top: 6em;
+  min-height: 100vh;
+  width: 40em;
+}
+
+main section ul {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+}
+
+main section ul li {
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+@media screen and (max-width: 900px) {
+  main section {
+    width: 90%;
+  }
+}
+
+h1 {
+  letter-spacing: 0.025em;
+}
+
+main h1 {
+  font-size: 3em;
+  margin-bottom: 2em;
+}
+
+main p {
+  font-size: 1.2em;
+  margin: 2em 0em;
+  word-spacing: 0.1em;
+}
+
+aside {
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    top: 40vh;
+    width: 20vh;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+aside ul {
+    list-style: none;
+    height: 16%;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+  text-decoration: none;
+  color: #4a65dd;
+  transition: all 0.1s;
+}
+
+a:hover {
+  color: #6d82e0;
+}
+
+.arrow {
+  height: 8vh;
+  filter: invert();
+  cursor: pointer;
+  border-radius: 101%;
+}
+
+.arrow:hover {
+  filter: invert(20%);
+  background: #aaa;
+  transition: 0.2s ease-in-out;
+}
+
+.arrow-spin {
+  animation: arrow-spin;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in;
+}
+
+.spinning {
+  animation: spin 1s ease forwards;
+}
+
+@keyframes arrow-spin {
+  from {
+    width: 0vh;
+    transform: rotate(0deg);
+  }
+  to {
+    width: 8vh;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  50% {
+    transform: rotateZ(-20deg);
+    animation-timing-function: ease;
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
