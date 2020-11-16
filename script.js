@@ -2,14 +2,39 @@ let about;
 let offset;
 let aside;
 
-let interval = setInterval(spinArrow, 2000);
-window.addEventListener("keydown", checkKey)
+let touchX;
+let touchY;
 
-window.onwheel = scrolly;
+let slides;
+let curr_slide;
 
-function scrollDown() {
-    about = document.querySelector("#about");
-    about.scrollIntoView({behavior: "smooth"});
+document.addEventListener("DOMContentLoaded", init);
+window.addEventListener("resize", changeSize);
+
+function init() {
+    
+    if (screen.width < 900) {
+        document.querySelector("body").classList.add("normalscroll");
+    }
+
+    slides = document.querySelectorAll(".slides section");
+    curr_slide = 0;
+    slides[0].scrollIntoView({behavior: "smooth"});
+
+    let interval = setInterval(spinArrow, 6000);
+    window.addEventListener("keydown", checkKey);
+
+    window.onwheel = scrolly;
+}
+
+function changeSize() {
+    if (screen.width <= 900) {
+        document.querySelector("body").className ="normalscroll";
+    } else {
+        document.querySelector("body").className ="";
+
+    }
+    
 }
 
 function spinArrow() {
@@ -41,8 +66,16 @@ function checkKey(event) {
 }
 
 function scrollUp() {
-    window.scrollBy({ top:window.innerHeight * -1, left: 0, behavior: "smooth" });
+    if (curr_slide != 0) {
+        curr_slide = curr_slide -1
+        slides[curr_slide].scrollIntoView({behavior: "smooth"});
+    }
 }
+
 function scrollDown() {
-    window.scrollBy({ top:window.innerHeight, left: 0, behavior: "smooth" });
+    console.log(curr_slide)
+    if (curr_slide +1 != slides.length) {
+        curr_slide ++
+        slides[curr_slide].scrollIntoView({behavior: "smooth"});
+    }
 }
